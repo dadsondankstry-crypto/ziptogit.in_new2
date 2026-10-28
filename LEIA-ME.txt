@@ -1,0 +1,27 @@
+JAPONÊS CARDS — VERSÃO 2
+========================
+
+NOVIDADES
+- Conjunto ampliado de Hiragana e Katakana.
+- Inclui kana básicos, sons com dakuten/handakuten (ga, za, da, ba, pa) e combinações (kya, shu, cho etc.).
+- Modo desafio agora oferece:
+  1. Reconhecimento visual: mostra o caractere.
+  2. Som sem imagem: esconde o caractere e toca o áudio automaticamente.
+  3. Desafio misto: alterna entre visual e áudio.
+- Fontes externas removidas do CSS para não depender de download de fontes para a aparência offline.
+- Histórico local inclui o tipo de desafio.
+- Preparação PWA mantida, com cache atualizado.
+
+COMO TESTAR
+1. Extraia o ZIP.
+2. Abra index.html para testar interface e lógica básica.
+3. Para instalar como PWA e testar service worker/offline, use HTTPS ou servidor local.
+4. O áudio tenta um arquivo local em audios/<hiragana|katakana>/<romaji>.mp3 e, se não existir, usa a voz japonesa do dispositivo.
+5. A síntese de voz pode depender de uma voz japonesa instalada e não garante áudio offline. Para garantia total, é necessário adicionar arquivos MP3 locais.
+
+NOTAS
+- O modo de estudo mostra 10 caracteres aleatórios, um por card, com anterior/próximo.
+- O desafio de áudio oculta o caractere e oferece 4 alternativas.
+- O desafio misto alterna perguntas visuais e auditivas.
+- O conjunto romaniza ぢ e づ como ji/zu, uso comum em tabelas didáticas; há convenções alternativas.
+- Esta é uma versão de desenvolvimento. Ícones PWA e áudios gravados podem ser adicionados na próxima etapa.

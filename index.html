@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#172554">
+  <meta name="description" content="Aprenda Hiragana e Katakana com cards, desafios e áudio.">
+  <title>Japonês Cards</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">あ</div>
+      <div>
+        <p class="eyebrow">SEU TREINO DE JAPONÊS</p>
+        <h1>Japonês <span>Cards</span></h1>
+      </div>
+      <button id="soundToggle" class="icon-button" aria-label="Alternar áudio" title="Alternar áudio">🔊</button>
+    </header>
+
+    <main>
+      <section id="homeScreen" class="screen active">
+        <div class="hero panel">
+          <div class="hero-copy">
+            <span class="pill">🌸 Aprenda no seu ritmo</span>
+            <h2>Um card de cada vez.<br><span>日本語</span> sem complicação.</h2>
+            <p>Treine os caracteres japoneses com estudo guiado, desafios rápidos e áudio.</p>
+          </div>
+          <div class="hero-kana" aria-hidden="true">あ<br><small>ア</small></div>
+        </div>
+
+        <div class="section-heading"><div><p class="eyebrow">ESCOLHA SEU ALFABETO</p><h2>Por onde vamos?</h2></div></div>
+        <div class="kana-grid">
+          <button class="kana-choice panel" data-script="hiragana">
+            <span class="kana-symbol">あ</span><span class="kana-info"><strong>Hiragana</strong><small>ひらがな · formas arredondadas</small></span><span class="arrow">›</span>
+          </button>
+          <button class="kana-choice panel" data-script="katakana">
+            <span class="kana-symbol angular">ア</span><span class="kana-info"><strong>Katakana</strong><small>カタカナ · formas angulares</small></span><span class="arrow">›</span>
+          </button>
+        </div>
+
+        <div class="section-heading"><div><p class="eyebrow">ESCOLHA COMO TREINAR</p><h2>Seu próximo passo</h2></div></div>
+        <div class="mode-grid">
+          <button id="studyMode" class="mode-card panel">
+            <span class="mode-icon study-icon">📖</span><strong>Modo de estudo</strong><small>Veja os caracteres, ouça e aprenda antes de responder.</small><span class="mode-link">Começar a estudar →</span>
+          </button>
+          <button id="challengeMode" class="mode-card panel">
+            <span class="mode-icon challenge-icon">⚡</span><strong>Modo desafio</strong><small>Escolha entre reconhecimento visual, áudio ou treino misto.</small><span class="mode-link">Escolher desafio →</span>
+          </button>
+        </div>
+        <div class="offline-note"><span>●</span><div><strong>Feito para estudar offline</strong><p>Depois de servido e armazenado pelo navegador, o app e os dados locais podem funcionar sem internet.</p></div></div>
+      </section>
+
+      <section id="challengeSetup" class="screen">
+        <div class="session-top"><button id="challengeBack" class="back-button">← Início</button><div class="session-label">Configurar desafio</div></div>
+        <div class="session-heading"><p class="eyebrow">ESCOLHA O TREINO</p><h2>Como quer praticar?</h2><p>Todos os desafios usam 10 perguntas sorteadas.</p></div>
+        <div class="challenge-mode-list">
+          <button class="challenge-type panel" data-challenge="visual"><span class="type-icon">👁️</span><span><strong>Reconhecimento visual</strong><small>Veja o kana e escolha o romaji.</small></span><span class="arrow">›</span></button>
+          <button class="challenge-type panel" data-challenge="audio"><span class="type-icon">🎧</span><span><strong>Som sem imagem</strong><small>Ouça a pronúncia sem ver o caractere.</small></span><span class="arrow">›</span></button>
+          <button class="challenge-type panel" data-challenge="mixed"><span class="type-icon">🔀</span><span><strong>Desafio misto</strong><small>Alterna entre visual e áudio.</small></span><span class="arrow">›</span></button>
+        </div>
+      </section>
+
+      <section id="sessionScreen" class="screen">
+        <div class="session-top">
+          <button id="backHome" class="back-button">← Início</button>
+          <div class="session-label"><span id="sessionScriptLabel">Hiragana</span><span class="dot">•</span><span id="sessionModeLabel">Estudo</span></div>
+          <span id="questionCounter" class="counter">1 / 10</span>
+        </div>
+        <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+        <div class="session-heading"><p class="eyebrow" id="phaseEyebrow">FASE 1</p><h2 id="phaseTitle">Conheça o caractere</h2><p id="phaseDescription">Veja o caractere e aprenda sua leitura.</p></div>
+        <div class="flashcard panel" id="flashcard">
+          <div class="card-topline"><span id="cardTag" class="pill">HIRAGANA</span><span id="cardIndex">CARD 01</span></div>
+          <div id="characterDisplay" class="character-display">あ</div>
+          <div id="romajiDisplay" class="romaji-display">a</div>
+          <div id="cardHint" class="card-hint">Observe a forma e a leitura.</div>
+          <button id="playAudio" class="audio-button"><span>🔊</span> Ouvir pronúncia</button>
+        </div>
+        <div id="answerArea" class="answer-area">
+          <p id="answerPrompt" class="answer-prompt">Qual é a leitura deste caractere?</p>
+          <div id="optionsGrid" class="options-grid"></div>
+          <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+        </div>
+        <div id="studyControls" class="study-controls hidden">
+          <button id="prevStudy" class="secondary-button">← Anterior</button>
+          <button id="nextStudy" class="primary-button">Próximo →</button>
+        </div>
+        <button id="continueButton" class="primary-button full-width hidden">Continuar →</button>
+      </section>
+
+      <section id="resultScreen" class="screen">
+        <div class="result-hero panel">
+          <div id="resultEmoji" class="result-emoji">🎉</div>
+          <p class="eyebrow">RODADA CONCLUÍDA</p>
+          <h2 id="resultTitle">Muito bem!</h2>
+          <p id="resultMessage">Você terminou seu treino.</p>
+          <div class="score-ring"><strong id="finalScore">0/10</strong><small>acertos</small></div>
+          <div class="result-stats">
+            <div><strong id="correctCount">0</strong><small>Acertos</small></div>
+            <div><strong id="wrongCount">0</strong><small>Erros</small></div>
+            <div><strong id="accuracyCount">0%</strong><small>Precisão</small></div>
+          </div>
+        </div>
+        <div class="section-heading"><div><p class="eyebrow">PRÓXIMOS PASSOS</p><h2>Continue praticando</h2></div></div>
+        <div id="reviewBox" class="review-box panel hidden"><strong>Vale revisar estes caracteres</strong><div id="reviewChars" class="review-chars"></div></div>
+        <button id="retryButton" class="primary-button full-width">🔄 Tentar outra rodada</button>
+        <button id="homeFromResult" class="secondary-button full-width">Voltar ao início</button>
+      </section>
+    </main>
+    <footer><span>日本語</span> Japonês Cards <span class="footer-dot">•</span> Estude um pouco todos os dias</footer>
+  </div>
+  <script src="js/hiragana.js"></script>
+  <script src="js/katakana.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/exercicios.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

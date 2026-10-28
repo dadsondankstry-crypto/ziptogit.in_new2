@@ -1,0 +1,12 @@
+{
+  "name": "Japonês Cards",
+  "short_name": "Japonês Cards",
+  "description": "Aprenda Hiragana e Katakana com cards e desafios.",
+  "lang": "pt-BR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f8fc",
+  "theme_color": "#172554",
+  "icons": []
+}
